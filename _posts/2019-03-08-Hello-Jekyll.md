@@ -1,5 +1,6 @@
 ---
 title: Hello, world!
-layout: single
+layout: post
+author: cdltlehf
 ---
 # Hello, Jekyll!

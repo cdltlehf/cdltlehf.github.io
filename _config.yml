@@ -24,9 +24,14 @@ github_username:  cdltlehf
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: tale
+
+permalink: /:year-:month-:day/:title
+paginate: 5
 plugins:
   - jekyll-feed
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

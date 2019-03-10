@@ -1,0 +1,33 @@
+// Colors
+$default-color: #555;
+$default-shade: #353535;
+$default-tint: #aaa;
+$grey-1: #979797;
+$grey-2: #e5e5e5;
+$grey-3: #f9f9f9;
+$white: #fff;
+$blue: #4a9ae1;
+$shadow-color: rgba(0, 0, 0, .2);
+$code-color: #bf616a;
+
+// Fonts
+@import url("code-dracula.css");
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Nanum+Gothic:400,700|Nanum+Myeongjo:400,700|Roboto+Mono|Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,500i|Suranna');
+
+$serif-primary: 'Suranna', 'Nanum Myeongjo', serif;
+$serif-secondary: 'Roboto Slab', 'Nabum Myeongjo', serif;
+$sans-serif: 'Roboto', 'Nanum Gothic', sans-serif;
+$monospaced: 'Roboto Mono', monospace;
+$cursive: 'Dancing Script', cursive;
+
+@mixin box-sizing($type: border-box) {
+  -webkit-box-sizing: $type;
+     -moz-box-sizing: $type;
+          box-sizing: $type;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+     -moz-transition: $args;
+          transition: $args;
+}

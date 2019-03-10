@@ -1,0 +1,137 @@
+* {
+  @include box-sizing;
+  line-height: 1.5;
+}
+
+html,
+body {
+  font-display: optional;
+  color: $default-color;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: $serif-secondary;
+  font-weight: lighter;
+  font-size: 14px;
+  overflow-y: scroll;
+
+  @media (min-width: 600px) {
+    font-size: 16px;
+  }
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  color: $default-shade;
+  font-family: $serif-secondary;
+  font-weight: normal;
+  line-height: normal;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 0.7rem 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+}
+
+h5 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+h6 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.post h1::before,
+.post h2::before,
+.post h3::before,
+.post h4::before,
+.post h5::before,
+.post h6::before {
+  position: absolute;
+  bottom: 0;
+  right: calc(100% + 10px);
+  color: $default-tint;
+  font-size: 0.8rem;
+  font-variant: "small-caps";
+}
+
+.post h1::before {
+  content: "H1";
+}
+
+.post h2::before {
+  content: "H2";
+}
+
+.post h3::before {
+  content: "H3";
+}
+
+.post h4::before {
+  content: "H4";
+}
+
+.post h5::before {
+  content: "H5";
+}
+
+.post h6::before {
+  content: "H6";
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+}
+
+blockquote {
+  position: relative;
+  margin: 1rem 0 1rem 2rem;
+  font-family: $serif-secondary;
+
+  @media (min-width: 600px) {
+    padding: 0 5rem 0 1.25rem;
+  }
+
+  p:not(:last-child):before {
+    height: calc(100% + 1rem);
+  }
+}
+
+img {
+  display: block;
+  margin: 0 0 1rem;
+  max-width: 100%;
+}
+
+td {
+  vertical-align: top;
+}

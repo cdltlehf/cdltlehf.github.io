@@ -1,6 +1,7 @@
 ---
 title: Recurrence Relation
-layout: single
+layout: post
+author: cdltlehf
 ---
 # First order recurrence relation
 
@@ -16,7 +17,7 @@ $$
 
 ## Proposition 1
 
-초기조건 $ a_n$ 이 주어진 first order recurrence relation $ a_n = sa_{n-1} + t, \text{ for } n \ge 1 $에 대하여, 일반항 $ a_n ​$은 다음과 같이 주어진다.
+초기조건 $ a_n​$ 이 주어진 first order recurrence relation $ a_n = sa_{n-1} + t, \text{ for } n \ge 1 ​$에 대하여, 일반항 $ a_n ​$은 다음과 같이 주어진다.
 $$
 a_n = s^na_0 + (s^{n-1} + s^{n-2} + \dots + s + 1)t
 $$
@@ -42,7 +43,7 @@ $$
 
 ## Definition
 
-수열 $\{ a_n \}$이 어떤 고정된 수 $ s_1 $과 $ s_2 $에 대하여 다음과 같은 조건을 만족한다고 가정하자.
+수열 $\{ a_n \}​$이 어떤 고정된 수 $ s_1 ​$과 $ s_2 ​$에 대하여 다음과 같은 조건을 만족한다고 가정하자.
 $$
 a_n = s_1a_{n-1}+s_2a_{n-2}, \text{ for } n \ge 2
 $$
@@ -80,7 +81,7 @@ $ r $이 (5)의 한 근이라 가정하자.
 
 ## Proposition 2
 
-이 때, $ r_1, r_2 ​$가 (5)의 서로 다른 두 근이라 가정하자. 
+이 때, $ r_1, r_2 $가 (5)의 서로 다른 두 근이라 가정하자. 
 
 그러면 $ a_n = c_1{r_1}^n + c_2{r_2}^n $ 는 (4)를 만족한다.
 
