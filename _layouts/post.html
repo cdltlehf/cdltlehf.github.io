@@ -18,9 +18,7 @@ layout: default
 
   <div class="post-title">{{ page.title }}</div>
   <div class="post-line"></div>
-
   {{ content }}
-
 </div>
 
 <div class="pagination">
@@ -31,5 +29,11 @@ layout: default
     <a href="{{ page.previous.url | prepend: site.baseurl }}" class="right arrow">&#8594;</a>
   {% endif %}
 
+  {% if page.comments %}
+    {% include disqus.html %}
+  {% endif %}
+
   <a href="#" class="top">Top</a>
 </div>
+
+

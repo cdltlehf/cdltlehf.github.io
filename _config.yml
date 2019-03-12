@@ -24,11 +24,17 @@ github_username:  cdltlehf
 
 # Build settings
 markdown: kramdown
-theme: tale
+kramdown:
+  -math_engine: nil
+  #mathjax: true
 
 permalink: /:year-:month-:day/:title
 paginate: 5
 plugins:
+  - jekyll
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
   - jekyll-feed
 
 

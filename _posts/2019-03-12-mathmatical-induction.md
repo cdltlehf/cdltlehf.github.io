@@ -1,6 +1,8 @@
 ---
 layout: post
 author: cdltlehf
+comments: true
+use_math: true
 ---
 
 
