@@ -21,6 +21,10 @@ layout: default
   {{ content }}
 </div>
 
+{% if page.comments %}
+  {% include disqus.html %}
+{% endif %}
+
 <div class="pagination">
   {% if page.next.url %}
     <a href="{{ page.next.url | prepend: site.baseurl }}" class="left arrow">&#8592;</a>
@@ -29,9 +33,6 @@ layout: default
     <a href="{{ page.previous.url | prepend: site.baseurl }}" class="right arrow">&#8594;</a>
   {% endif %}
 
-  {% if page.comments %}
-    {% include disqus.html %}
-  {% endif %}
 
   <a href="#" class="top">Top</a>
 </div>
