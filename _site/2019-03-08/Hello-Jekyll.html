@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136084281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136084281-1');
+</script>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Hello, world! &middot; cdltlehf.github.io
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  
+  <script>
+  let lastScrollTop = 0;
+  let nav;
+  window.onload = function() {
+    document.body.classList.remove('preload');
+    nav = document.getElementsByClassName('nav')[0];
+    window.onscroll = function() {
+      let scrollTop= window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop> lastScrollTop) {
+        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+      } else {
+        console.log(nav.clientHeight , scrollTop);
+        if (nav.clientTop + nav.clientHeight < scrollTop) {
+          nav.classList.add('nav-sticky');
+          setTimeout(()=>{nav.classList.add('nav-sticky-transition')}, 0);
+        }
+      }
+      if (scrollTop <= 0) {
+        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+      }
+      lastScrollTop = scrollTop<= 0 ? 0 :scrollTop;
+    };
+  };
+</script>
+
+</head>
+
+
+  <body class="preload">
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="/">
+          <h2 class="nav-title">cdltlehf.github.io</h2>
+        </a>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/">Posts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <div class="post">
+  <div class="post-info">
+    <span>Written by</span>
+    
+        cdltlehf
+    
+
+    
+      <br>
+      <span>on&nbsp;</span><time datetime="2019-03-08 00:00:00 +0900">March 08, 2019</time>
+    
+  </div>
+
+  <div class="post-title">Hello, world!</div>
+  <div class="post-line"></div>
+  <h1 id="hello-jekyll">Hello, Jekyll!</h1>
+
+</div>
+
+
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+var disqus_config = function () {
+  this.page.url = "http://localhost:4000/2019-03-08/Hello-Jekyll";  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = "/2019-03-08/Hello-Jekyll"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://cdltlehf-github-io.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//cdltlehf-github-io.disqus.com/count.js" async></script>
+
+
+
+<div class="pagination">
+  
+    <a href="/2019-03-12/mathmatical-induction" class="left arrow">&#8592;</a>
+  
+  
+
+
+  <a href="#" class="top">Top</a>
+</div>
+
+
+
+    </main>
+
+    <footer>
+      <span>
+        &copy; <time datetime="2019-03-19 13:12:38 +0900">2019</time> . Made with Jekyll using the slightly modified <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+      </span>
+    </footer>
+  </body>
+</html>

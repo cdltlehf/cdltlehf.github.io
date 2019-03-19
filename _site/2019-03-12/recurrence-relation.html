@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136084281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136084281-1');
+</script>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Recurrence Relation &middot; cdltlehf.github.io
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      },
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_SVG"></script>
+
+  
+  <script>
+  let lastScrollTop = 0;
+  let nav;
+  window.onload = function() {
+    document.body.classList.remove('preload');
+    nav = document.getElementsByClassName('nav')[0];
+    window.onscroll = function() {
+      let scrollTop= window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop> lastScrollTop) {
+        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+      } else {
+        console.log(nav.clientHeight , scrollTop);
+        if (nav.clientTop + nav.clientHeight < scrollTop) {
+          nav.classList.add('nav-sticky');
+          setTimeout(()=>{nav.classList.add('nav-sticky-transition')}, 0);
+        }
+      }
+      if (scrollTop <= 0) {
+        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+      }
+      lastScrollTop = scrollTop<= 0 ? 0 :scrollTop;
+    };
+  };
+</script>
+
+</head>
+
+
+  <body class="preload">
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="/">
+          <h2 class="nav-title">cdltlehf.github.io</h2>
+        </a>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/">Posts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <div class="post">
+  <div class="post-info">
+    <span>Written by</span>
+    
+        cdltlehf
+    
+
+    
+      <br>
+      <span>on&nbsp;</span><time datetime="2019-03-12 17:38:33 +0900">March 12, 2019</time>
+    
+  </div>
+
+  <div class="post-title">Recurrence Relation</div>
+  <div class="post-line"></div>
+  <h1 id="first-order-recurrence-relation">First order recurrence relation</h1>
+
+<h2 id="definition">Definition</h2>
+
+<p>수열 $ {a_n} $ 이 어떤 고정된 수 $ s $와 $ t $에 대하여 다음과 같은 조건을 만족한다고 가정하자.
+<script type="math/tex">\begin{align}
+  a_n = sa_{n-1} + t, \text{ for } n \ge 1
+\end{align}</script>
+이 때, 이를 <em>first order recurrence relation</em>이라 한다.</p>
+
+<h2 id="proposition-1">Proposition 1</h2>
+
+<p>초기조건 $ a_n $ 이 주어진 first order recurrence relation $ a_n = sa_{n-1} + t, \text{ for } n \ge 1 $에 대하여, 일반항 $ a_n $은 다음과 같이 주어진다.
+<script type="math/tex">\begin{align}
+  a_n = s^na_0 + (s^{n-1} + s^{n-2} + \dots + s + 1)t
+\end{align}</script></p>
+
+<p>이는 다음과 같이 축약할 수 있다.
+<script type="math/tex">% <![CDATA[
+\begin{align}
+  a_n = 
+  \begin{cases}
+    s^na_0+\frac{s^n+1}{s-1}t,& \text{ if }s\ne1\\
+    a_0+nt,&\text{ if }s=1
+  \end{cases}
+\end{align} %]]></script></p>
+
+<h3 id="proposition-1에-대한-증명">Proposition 1에 대한 증명</h3>
+
+<p>귀납법을 통해 증명 가능하다</p>
+
+<h1 id="second-order-recurrence-relation">Second order recurrence relation</h1>
+
+<h2 id="definition-1">Definition</h2>
+
+<p>수열 $ { a_n } $이 어떤 고정된 수 $ s_1 $과 $ s_2 $에 대하여 다음과 같은 조건을 만족한다고 가정하자.
+<script type="math/tex">a_n = s_1a_{n-1}+s_2a_{n-2}, \text{ for } n \ge 2</script>
+이 때, 이를 <em>second order recurrence relation</em>이라 한다.</p>
+
+<p>어떤 second order recurrence relation $ a_n = s_1a_{n-1} + s_2a_{n-2}, \text{ for } n \ge 2 $ 를 가지고 있다고 가정하자.</p>
+
+<p>이 때, 다음과 같은 2차 방정식을 생각할수 있다.
+<script type="math/tex">\begin{align}
+x^2 = s_1x + s_2
+\end{align}</script></p>
+
+<h2 id="proposition-1-1">Proposition 1</h2>
+
+<p>$ r $이 (5)의 한 근이라 가정하자.</p>
+
+<p>그러면 $ a_n = r^n $은 (4)를 만족한다.</p>
+
+<h3 id="proposition-1에-대한-증명-1">Proposition 1에 대한 증명</h3>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+a_n &= r^n\\
+s_1a_{n-1} + s_2a_{n-2} &= s_1r^{n-1} + s_2r^{n-2}\\
+&= r^{n-2}(s_1r + s_2)\\
+&= r^{n-2}r^2\\
+&= r^n
+\end{align} %]]></script>
+
+<h2 id="proposition-2">Proposition 2</h2>
+
+<p>이 때, $ r_1, r_2 $가 (5)의 서로 다른 두 근이라 가정하자.</p>
+
+<p>그러면 $ a_n = c_1{r_1}^n + c_2{r_2}^n $ 는 (4)를 만족한다.</p>
+
+<h3 id="proposition-2에-대한-증명">Proposition 2에 대한 증명</h3>
+
+<p>Proposition 1에 대한 증명과 유사하다.</p>
+
+<h2 id="proposition-3">Proposition 3</h2>
+
+<p>$ r ​$ 이 (5)의 중근이라 가정하자.</p>
+
+<p>그러면 $ a_n = nr^n $ 은 (4)를 만족한다.</p>
+
+<p>Proposition 2에 의</p>
+
+<h3 id="proposition-3에-대한-증명">Proposition 3에 대한 증명</h3>
+
+
+</div>
+
+
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+var disqus_config = function () {
+  this.page.url = "http://localhost:4000/2019-03-12/recurrence-relation";  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = "/2019-03-12/recurrence-relation"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://cdltlehf-github-io.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//cdltlehf-github-io.disqus.com/count.js" async></script>
+
+
+
+<div class="pagination">
+  
+  
+    <a href="/2019-03-12/mathmatical-induction" class="right arrow">&#8594;</a>
+  
+
+
+  <a href="#" class="top">Top</a>
+</div>
+
+
+
+    </main>
+
+    <footer>
+      <span>
+        &copy; <time datetime="2019-03-19 13:12:38 +0900">2019</time> . Made with Jekyll using the slightly modified <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+      </span>
+    </footer>
+  </body>
+</html>

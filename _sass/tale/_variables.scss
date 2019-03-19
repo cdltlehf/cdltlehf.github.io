@@ -7,7 +7,7 @@ $grey-2: #e5e5e5;
 $grey-3: #f9f9f9;
 $white: #fff;
 $blue: #4a9ae1;
-$shadow-color: rgba(0, 0, 0, .2);
+$shadow-color: rgba(0, 0, 0, .15);
 $code-color: #bf616a;
 $identity-color: #ab47bc;
 
@@ -31,4 +31,16 @@ $cursive: 'Dancing Script', cursive;
   -webkit-transition: $args;
      -moz-transition: $args;
           transition: $args;
+}
+
+@mixin transform($args...) {
+  -webkit-transform: $args;
+     -moz-transform: $args;
+          transform: $args;
+}
+
+@mixin position($pos) {
+  -webkit-position: $pos;
+     -moz-position: $pos;
+          position: $pos;
 }

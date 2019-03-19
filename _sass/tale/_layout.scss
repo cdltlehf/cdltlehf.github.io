@@ -1,3 +1,36 @@
+* {
+  @include box-sizing;
+  line-height: 1.5;
+}
+
+html,
+body {
+  font-display: optional;
+  color: $default-color;
+  margin: 0;
+  padding: 0;
+  display: flow-root;
+}
+
+html {
+  font-family: $serif-secondary;
+  font-weight: lighter;
+  font-size: 14px;
+  overflow-y: scroll;
+
+  @media (min-width: 600px) {
+    font-size: 16px;
+  }
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+.preload {
+  -webkit-transition: none !important;
+}
+
 .container {
   margin: 0 auto;
   max-width: 800px;
@@ -14,8 +47,12 @@ footer,
 }
 
 .nav {
-  box-shadow: 0 2px 2px -2px $shadow-color;
+  @include transition(all .2s ease-out);
+  box-shadow: 0 1px 0px 0px $shadow-color;
   overflow: auto;
+  width: 100%;
+  background-color: $white;
+  z-index: 1;
 
   &-container {
     margin: 1rem auto;
@@ -24,11 +61,12 @@ footer,
   }
 
   &-title {
-    @include transition(all .2s ease-out);
+    @include transition(all 2s ease-out);
     color: $default-color;
     display: inline-block;
     margin: 0;
     padding-right: .2rem;
+    font-family: $serif-secondary;
 
     &:hover,
     &:focus {
@@ -62,8 +100,22 @@ footer,
 
   a {
     color: $default-color;
-    font-family: $sans-serif;
+    font-family: $serif-secondary;
   }
+}
+
+.nav-sticky {
+  top: 0px;
+  @include transition(transform 0s ease-out);
+  @include transform(translateY(-100%));
+  position: sticky;
+  position: -webkit-sticky;
+  box-shadow: 0 1px 3px 0px $shadow-color;
+}
+
+.nav-sticky-transition {
+  @include transition(all .2s ease-out);
+  @include transform(translateY(0%));
 }
 
 @media (min-width: 600px) {

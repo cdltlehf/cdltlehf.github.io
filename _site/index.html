@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136084281-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136084281-1');
+</script>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      cdltlehf.github.io
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  
+  <script>
+  let lastScrollTop = 0;
+  let nav;
+  window.onload = function() {
+    document.body.classList.remove('preload');
+    nav = document.getElementsByClassName('nav')[0];
+    window.onscroll = function() {
+      let scrollTop= window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop> lastScrollTop) {
+        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+      } else {
+        console.log(nav.clientHeight , scrollTop);
+        if (nav.clientTop + nav.clientHeight < scrollTop) {
+          nav.classList.add('nav-sticky');
+          setTimeout(()=>{nav.classList.add('nav-sticky-transition')}, 0);
+        }
+      }
+      if (scrollTop <= 0) {
+        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+      }
+      lastScrollTop = scrollTop<= 0 ? 0 :scrollTop;
+    };
+  };
+</script>
+
+</head>
+
+
+  <body class="preload">
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="/">
+          <h2 class="nav-title">cdltlehf.github.io</h2>
+        </a>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/">Posts</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <div class="catalogue">
+  
+  <a href="/2019-03-12/recurrence-relation" class="catalogue-item">
+      <div>
+        <time datetime="2019-03-12 17:38:33 +0900" class="catalogue-time">March 12, 2019</time>
+        <h1 class="catalogue-title">
+          <span class="index">#2</span>Recurrence Relation
+        </h1>
+        <div class="catalogue-line"></div>
+
+        <p>
+          First order recurrence relation Definition 수열 $ {a_n} $ 이 어떤 고정된 수 $ s $와 $ t $에 대하여 다음과 같은 조건을 만족한다고 가정하자. 이 때, 이를 first order...
+        </p>
+
+      </div>
+    </a>
+  
+  <a href="/2019-03-12/mathmatical-induction" class="catalogue-item">
+      <div>
+        <time datetime="2019-03-12 00:00:00 +0900" class="catalogue-time">March 12, 2019</time>
+        <h1 class="catalogue-title">
+          <span class="index">#1</span>Mathmatical Induction
+        </h1>
+        <div class="catalogue-line"></div>
+
+        <p>
+          Principle of Mathmatical Induction 집합 $ E ​$가 $ \mathbb{N} ​$의 부분집합이라 하자. 집합 $E​$가 $ 1 \in E ​$ $ n \in E \implies n + 1 \in E...
+        </p>
+
+      </div>
+    </a>
+  
+  <a href="/2019-03-08/Hello-Jekyll" class="catalogue-item">
+      <div>
+        <time datetime="2019-03-08 00:00:00 +0900" class="catalogue-time">March 08, 2019</time>
+        <h1 class="catalogue-title">
+          <span class="index">#0</span>Hello, world!
+        </h1>
+        <div class="catalogue-line"></div>
+
+        <p>
+          Hello, Jekyll!
+
+        </p>
+
+      </div>
+    </a>
+  
+</div>
+
+<div class="pagination">
+  
+  
+
+  <span>1</span>
+</div>
+
+    </main>
+
+    <footer>
+      <span>
+        &copy; <time datetime="2019-03-19 13:12:38 +0900">2019</time> . Made with Jekyll using the slightly modified <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+      </span>
+    </footer>
+  </body>
+</html>
