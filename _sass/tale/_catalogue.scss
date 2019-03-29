@@ -4,6 +4,7 @@
     color: $default-color;
     display: inline-block;
     padding: 2rem 0;
+    position: relative;
 
     &:hover .catalogue-line,
     &:focus .catalogue-line {
@@ -13,13 +14,32 @@
     &:last-child {
       border: 0;
     }
+    a {
+      color: $default-color;
+    }
   }
+
 
   &-time {
     color: $default-tint;
     font-family: $serif-secondary;
     letter-spacing: .5px;
   }
+
+  &-tag {
+    color: $identity-color;
+    width: 300px;
+    font-size: .8em;
+    a {
+      color: $identity-color;
+      opacity: 1;
+      &:hover {
+        opacity: 0.7;
+      }
+      @include transition(all .3s ease-out);
+    }
+  }
+
 
   &-title {
     color: $default-shade;

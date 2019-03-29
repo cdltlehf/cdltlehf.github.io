@@ -1,5 +1,5 @@
 ---
-category: Calculus
+tags: [math, calculus]
 use_math: true
 ---
 

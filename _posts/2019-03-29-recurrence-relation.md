@@ -1,6 +1,6 @@
 ---
 title: Recurrence Relation
-category: Discrete Math
+tags: [math, discrete-math]
 use_math: true
 ---
 # First order recurrence relation
