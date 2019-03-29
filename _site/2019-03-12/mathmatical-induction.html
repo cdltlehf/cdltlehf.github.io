@@ -56,19 +56,17 @@
     nav = document.getElementsByClassName('nav')[0];
     window.onscroll = function() {
       let scrollTop= window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop> lastScrollTop) {
-        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+      if (scrollTop > lastScrollTop) {
+        nav.classList.remove('nav-sticky-show');
+        if (nav.clientHeight < scrollTop) nav.classList.add('nav-sticky');
       } else {
-        console.log(nav.clientHeight , scrollTop);
-        if (nav.clientTop + nav.clientHeight < scrollTop) {
-          nav.classList.add('nav-sticky');
-          setTimeout(()=>{nav.classList.add('nav-sticky-transition')}, 0);
-        }
+        if (nav.clientHeight < scrollTop) nav.classList.add('nav-sticky-show');
       }
+
       if (scrollTop <= 0) {
-        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+        nav.classList.remove('nav-sticky', 'nav-sticky-show');
       }
-      lastScrollTop = scrollTop<= 0 ? 0 :scrollTop;
+      lastScrollTop = scrollTop <= 0 ? 0 :scrollTop;
     };
   };
 </script>
@@ -92,9 +90,9 @@
     <main>
       <div class="post">
   <div class="post-info">
-    <span>Written by</span>
     
-        cdltlehf
+      <span>Written by</span>
+      cdltlehf
     
 
     
@@ -107,45 +105,45 @@
   <div class="post-line"></div>
   <h1 id="principle-of-mathmatical-induction">Principle of Mathmatical Induction</h1>
 
-<p>집합 $ E ​$가 $ \mathbb{N} ​$의 부분집합이라 하자.</p>
+<p>집합 $ E $가 $ \mathbb{N} $의 부분집합이라 하자.</p>
 
-<p>집합 $E​$가</p>
+<p>집합 $ E $가</p>
 
 <ol>
-  <li>$ 1 \in E ​$</li>
-  <li>$ n \in E \implies n + 1 \in E ​$</li>
+  <li>$ 1 \in E $</li>
+  <li>$ n \in E \implies n + 1 \in E $</li>
 </ol>
 
-<p>를 만족할경우 $ E = \mathbb{N} ​$ 이다.</p>
+<p>를 만족할경우 $ E = \mathbb{N} $ 이다.</p>
 
 <h1 id="well-ordering-principle">Well-ordering Principle</h1>
 
 <p>$ \forall A \subset \mathbb{N}: A \ne \varnothing \implies A \text{ has the least element}$</p>
 
 <blockquote>
-  <p>$ \mathbb{N} ​$의 모든 공집합이 아닌 부분집합은 최소 원소를 가진다.</p>
+  <p>$ \mathbb{N} $의 모든 공집합이 아닌 부분집합은 최소 원소를 가진다.</p>
 </blockquote>
 
 <h2 id="well-ordering-principle에-대한-증명">Well-ordering Principle에 대한 증명</h2>
 
-<p>집합 $ E ​$가 $ \mathbb{N} ​$의 공집합이 아닌 부분집합이라 하자.</p>
+<p>집합 $ E $가 $ \mathbb{N} $의 공집합이 아닌 부분집합이라 하자.</p>
 
-<p>귀류법을 사용하기 위하여 $E​$가 최소 원소를 가지지 않는다고 가정하자.</p>
+<p>귀류법을 사용하기 위하여 $ E $가 최소 원소를 가지지 않는다고 가정하자.</p>
 
-<p>$A = {n \in \mathbb{N}  \mid  \forall k \in E: n &lt; k } ​$ 라 하자.</p>
+<p>$A = {n \in \mathbb{N}  \mid  \forall k \in E: n &lt; k } $ 라 하자.</p>
 
-<p>$A \cap E = \varnothing ​$ 이므로 $A = \mathbb{N} ​$ 임을 보이면 충분하다.</p>
+<p>$A \cap E = \varnothing $ 이므로 $A = \mathbb{N} $ 임을 보이면 충분하다.</p>
 
 <ol>
-  <li>$E​$가 최소 원소를 가지지 않으므로 $1 \notin E​$이며, 따라서 모든 $k​$에 대하여 $ 1&lt;k ​$ 이다. 따라서 $ 1 \in A ​$ 이다.</li>
-  <li>$ n \in A ​$ 라 하면, 모든 $ k \in E ​$ 에 대하여 $ n &lt; k ​$ 이며, 따라서 $ n+1 \le k ​$ 이다.  $ E ​$ 는 최소원소를 가지지 않으므로, $ n+1 \notin E ​$ 이다. 따라서 $ n+1 &lt; k ​$ 이며, 그러므로 $ n+1 \in A ​$ 이다.</li>
+  <li>$E$가 최소 원소를 가지지 않으므로 $1 \notin E$이며, 따라서 모든 $k$에 대하여 $ 1&lt;k $ 이다. 따라서 $ 1 \in A $ 이다.</li>
+  <li>$ n \in A $ 라 하면, 모든 $ k \in E $ 에 대하여 $ n &lt; k $ 이며, 따라서 $ n+1 \le k $ 이다.  $ E $ 는 최소원소를 가지지 않으므로, $ n+1 \notin E $ 이다. 따라서 $ n+1 &lt; k $ 이며, 그러므로 $ n+1 \in A $ 이다.</li>
 </ol>
 
-<p>따라서, principle of mathematical induction에 의하여, $ A=\mathbb{N} ​$ 이다.</p>
+<p>따라서, principle of mathematical induction에 의하여, $ A=\mathbb{N} $ 이다.</p>
 
 <p>$ A \cap E = \varnothing, A = \mathbb{N} $ 이므로, $ E = \varnothing $ 이며 이는 가정과 모순이다.</p>
 
-<p>따라서 모든 자연수의 공집합이 아닌 부분집합 $E​$ 는 최소 원소를 가진다.</p>
+<p>따라서 모든 자연수의 공집합이 아닌 부분집합 $E$ 는 최소 원소를 가진다.</p>
 
 </div>
 
@@ -174,7 +172,7 @@ var disqus_config = function () {
 
 <div class="pagination">
   
-    <a href="/2019-03-12/recurrence-relation" class="left arrow">&#8592;</a>
+    <a href="/2019-03-29/recurrence-relation" class="left arrow">&#8592;</a>
   
   
     <a href="/2019-03-08/Hello-Jekyll" class="right arrow">&#8594;</a>
@@ -190,7 +188,7 @@ var disqus_config = function () {
 
     <footer>
       <span>
-        &copy; <time datetime="2019-03-19 13:12:38 +0900">2019</time> . Made with Jekyll using the slightly modified <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+        &copy; <time datetime="2019-03-29 16:09:09 +0900">2019</time> . Made with Jekyll using the slightly modified <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
       </span>
     </footer>
   </body>

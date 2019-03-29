@@ -13,7 +13,7 @@ body {
 }
 
 html {
-  font-family: $serif-secondary;
+  font-family: $sans-serif;
   font-weight: lighter;
   font-size: 14px;
   overflow-y: scroll;
@@ -106,14 +106,14 @@ footer,
 
 .nav-sticky {
   top: 0px;
-  @include transition(transform 0s ease-out);
-  @include transform(translateY(-100%));
   position: sticky;
   position: -webkit-sticky;
   box-shadow: 0 1px 3px 0px $shadow-color;
+  @include transition(all .0s ease-out);
+  @include transform(translateY(-100%));
 }
 
-.nav-sticky-transition {
+.nav-sticky-show {
   @include transition(all .2s ease-out);
   @include transform(translateY(0%));
 }

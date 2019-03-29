@@ -6,19 +6,17 @@
     nav = document.getElementsByClassName('nav')[0];
     window.onscroll = function() {
       let scrollTop= window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop> lastScrollTop) {
-        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+      if (scrollTop > lastScrollTop) {
+        nav.classList.remove('nav-sticky-show');
+        if (nav.clientHeight < scrollTop) nav.classList.add('nav-sticky');
       } else {
-        console.log(nav.clientHeight , scrollTop);
-        if (nav.clientTop + nav.clientHeight < scrollTop) {
-          nav.classList.add('nav-sticky');
-          setTimeout(()=>{nav.classList.add('nav-sticky-transition')}, 0);
-        }
+        if (nav.clientHeight < scrollTop) nav.classList.add('nav-sticky-show');
       }
+
       if (scrollTop <= 0) {
-        nav.classList.remove('nav-sticky', 'nav-sticky-transition');
+        nav.classList.remove('nav-sticky', 'nav-sticky-show');
       }
-      lastScrollTop = scrollTop<= 0 ? 0 :scrollTop;
+      lastScrollTop = scrollTop <= 0 ? 0 :scrollTop;
     };
   };
 </script>

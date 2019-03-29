@@ -13,11 +13,11 @@ $identity-color: #ab47bc;
 
 // Fonts
 @import url("code-dracula.css");
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Nanum+Gothic:400,700|Nanum+Myeongjo:400,700|Roboto+Mono|Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,500i|Suranna');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+KR:300,400|Noto+Serif+KR:300,400|Roboto+Mono|Roboto+Slab:400,700|Roboto:300,300i,600,600i|Suranna|Song+Myung');
 
-$serif-primary: 'Suranna', 'Nanum Myeongjo', serif;
-$serif-secondary: 'Roboto Slab', 'Nabum Myeongjo', serif;
-$sans-serif: 'Roboto', 'Nanum Gothic', sans-serif;
+$serif-primary: 'Suranna', 'Song Myung', serif;
+$serif-secondary: 'Roboto Slab', 'Noto Sans KR', serif;
+$sans-serif: 'Roboto', 'Noto Sans KR', sans-serif;
 $monospaced: 'Roboto Mono', monospace;
 $cursive: 'Dancing Script', cursive;
 

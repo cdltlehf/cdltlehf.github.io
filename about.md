@@ -1,11 +1,10 @@
 ---
 layout: post
 title: About
-author: cdltlehf
 permalink: /about/
 ---
 
-# :P
+# <span>:P</span>
 
 ## Sung sicheol
 

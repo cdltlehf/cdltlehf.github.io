@@ -37,6 +37,17 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
 
+defaults:
+  - 
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "cdltlehf"
+      comments: "true"
+      category: "Misc"
+
 
 
 # Exclude from processing.
