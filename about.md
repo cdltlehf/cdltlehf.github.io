@@ -4,9 +4,9 @@ title: About
 permalink: /about/
 ---
 
-# <span>:P</span>
+# :P
 
-## Sung sicheol
+## Sung Sicheol
 
 - GitHub: [github.com/cdltlehf](https://github.com/cdltlehf)
 - Naver: [ESC의 블로그](https://blog.naver.com/cdltlehf)
