@@ -15,9 +15,9 @@ permalink: /about/
 
 - [ ] Customize Skin
   - [ ] Custom markdown style
-  - [x] ~~Fixed Header~~
-- [x] ~~Add Comment~~
-- [x] ~~Add Google Analytics~~
+  - [x] Fixed Header
+- [x] Add Comment
+- [x] Add Google Analytics
 - [ ] Add Categories
 - [ ] Add Tags
 

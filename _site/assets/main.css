@@ -110,7 +110,9 @@ ul > li:not(.task-list-item)::before {
 ul > .task-list-item {
   right: 1.3rem; }
   ul > .task-list-item input {
-    margin-right: 0.6rem; }
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-right: 0.4rem; }
 
 img {
   display: block;

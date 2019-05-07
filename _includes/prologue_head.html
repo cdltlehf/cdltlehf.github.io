@@ -16,6 +16,9 @@
       let title = document.getElementById("title");
       let canvas = document.getElementById("canvas");
       let ctx = canvas.getContext("2d");
+      let frame = 0;
+      let tilecolors = ['#ff71ce','#01cdfe','#05ffa1', '#b967ff', '#fffb96'];
+      let req;
       const tile = [];
       const mouse = [0, 0];
 
@@ -25,7 +28,7 @@
       for(let i=0;i<canvas.height;i++) {
         tile[i] = [];
         for(let j=0;j<canvas.width;j++) {
-          tile[i][j] = [0, 0, 0];
+          tile[i][j] = [0, 0, 0, 0];
         }
       }
 
@@ -43,6 +46,7 @@
       }
 
       const render = function() {
+        frame++;
         const backup = [];
         for(let i=0;i<canvas.height;i++) {
           backup[i] = [];
@@ -53,14 +57,17 @@
 
         for(let i=0;i<canvas.height;i++) {
           for(let j=0;j<canvas.width;j++) {
+            let color = [0, 0, 0, 0, 0];
             tile[i][j][1] = 0;
             for (let k=-1;k<2;k++) {
               if (0>i+k || i+k >=canvas.height) continue;
               for (let l=-1;l<2;l++) {
                 if (0>j+l || j+l >=canvas.width) continue;
                 tile[i][j][1] += tile[i+k][j+l][0];
+                if (tile[i+k][j+l][0]) color[tile[i+k][j+l][3]]++;
               }
             }
+            tile[i][j][3] = color.indexOf(Math.max(...color));
           }
         }
 
@@ -84,11 +91,16 @@
         for(let i=0;i<canvas.height;i++) {
           for(let j=0;j<canvas.width;j++) {
             if (backup[i][j] == 0 && tile[i][j][0] == 0) continue;
-            ctx.fillStyle = "rgb(" + tile[i][j][2]/2 + ", " + tile[i][j][2]/2 + ", " + tile[i][j][2]/2 + ")";
+            ctx.fillStyle = '#000000';
             ctx.fillRect(j, i, 1, 1);
+            //ctx.globalAlpha = tile[i][j][2]/255/2;
+            if (tile[i][j][2] != 0)
+              ctx.fillStyle = tilecolors[tile[i][j][3]];
+            ctx.fillRect(j, i, 1, 1);
+            //ctx.globalAlpha = 1;
           }
         }
-        window.requestAnimationFrame(render);
+        req = window.requestAnimationFrame(render);
       }
 
       const resize = function() {
@@ -110,6 +122,7 @@
           for (let l=-1;l<2;l++) {
             if (0>j+l || j+l >=canvas.width) continue;
             tile[i+k][j+l][0] = 1
+            tile[i+k][j+l][3] = Math.floor(frame/10)%5;
           }
         }
       }
@@ -117,8 +130,14 @@
       rearrange();
       resize();
       render();
-
-      title.onmouseout = rearrange;
+      title.onmouseenter = function() {
+        window.cancelAnimationFrame(req);
+        req = null;
+      }
+      title.onmouseout = function() {
+        if(!req) render();
+        rearrange();
+      }
       window.onresize = resize;
       canvas.onmousemove = getMouse;
     }
