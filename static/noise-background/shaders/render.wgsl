@@ -51,6 +51,7 @@ fn fs(fs_in: VertexOutput) -> @location(0) vec4<f32> {
     for (var i = 0u; i < n; i++) {
         var weight = atan(snoise(vec3f(fs_in.uv + f32(i), z)));
         weight = weight / PI * 2 + 0.5;
+        weight += random(fs_in.uv + f32(i)) * chaos;
         totalWeight += weight;
         weights[i] = weight;
     }
@@ -65,10 +66,9 @@ fn fs(fs_in: VertexOutput) -> @location(0) vec4<f32> {
     var color = vec3f(0.0, 0.0, 0.0);
     for (var i = 0u; i < n; i++) {
         var weight = weights[i];
-        weight += random(fs_in.uv + f32(i)) * chaos;
         color += colors[i] * colors[i] * weight;
     }
     color = sqrt(color);
-    color += random(fs_in.uv + 1.0) * grain;
+    color += (random(fs_in.uv + 1.0) - 0.5) * grain;
     return vec4(color, 1.0);
 }
