@@ -210,13 +210,4 @@ body {
     line-height: inherit;
     height: 1lh;
   }
-  li::before {
-    position: absolute;
-    display: inline-block;
-    left: 0;
-    transform: translateX(-100%);
-    line-height: inherit;
-    content: counter(list-item);
-    text-align: right;
-  }
 }
