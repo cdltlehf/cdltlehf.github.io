@@ -290,19 +290,20 @@ var getBindedInput = function(target, property) {
         form.name = property.toString();
         var ol = document.createElement("ol");
         ol.start = 0;
-        var getChildElement = function(target, index, value) {
-            var li = document.createElement("li");
+        var getChildElement = function(value) {
             // TODO: Support other types
-            if (!(typeof value === "string")) {
-                throw new Error("Unsupported type");
-            }
-            var input = getBindedColorInput(target, index, value);
-            input.name = "".concat(property, "[").concat(index, "]");
+            var li = document.createElement("li");
+            var input = document.createElement("input");
+            input.type = "color";
+            input.setAttribute("value", value);
+            input.value = value;
+            input.oninput = function(_) {
+                input.setAttribute("value", input.value);
+            };
             var removeButton = document.createElement("button");
             removeButton.innerText = "×";
             removeButton.onclick = function(e) {
                 e.preventDefault();
-                target.splice(index, 1);
                 li.remove();
                 form.dispatchEvent(new Event("change"));
             };
@@ -310,20 +311,24 @@ var getBindedInput = function(target, property) {
             li.appendChild(removeButton);
             return li;
         };
-        value.forEach(function(e, i) {
-            var li = getChildElement(value, i, e);
+        value.forEach(function(e) {
+            var li = getChildElement(e);
             ol.appendChild(li);
         });
         var addButton = document.createElement("button");
         addButton.innerText = "+";
         addButton.onclick = function(e) {
             e.preventDefault();
-            // TODO
             var childDefaultValue = "#000000";
-            value.push(childDefaultValue);
-            var li = getChildElement(value, value.length - 1, childDefaultValue);
+            var li = getChildElement(childDefaultValue);
             ol.appendChild(li);
             form.dispatchEvent(new Event("change"));
+        };
+        form.onchange = function() {
+            var values = Array.from(ol.children).map(function(e) {
+                return e.querySelector("input").value;
+            });
+            Object.assign(target, _define_property({}, property, values));
         };
         form.appendChild(ol);
         form.appendChild(addButton);
@@ -394,7 +399,7 @@ var getCreateBuffer = function(device, usage) {
 };
 var main = /*#__PURE__*/ function() {
     var _ref = _async_to_generator(function() {
-        var params, shaderUrls, code, gpu, adapter, device, wrapper, caption, canvas, gui, context, format, vertices, indices, createStorageBuffer, createUniformBuffer, createVertexBuffer, createIndexBuffer, vertexBuffer, indexBuffer, buffers, chaosBuffer, grainBuffer, temperatureBuffer, zBuffer, colorValues, colorBuffer, resize, module, pipeline, renderBindGroup, seedElement, previousTimestamp, update, render, animate;
+        var params, shaderUrls, code, gpu, adapter, device, wrapper, caption, canvas, gui, context, format, vertices, indices, createStorageBuffer, createUniformBuffer, createVertexBuffer, createIndexBuffer, vertexBuffer, indexBuffer, buffers, chaosBuffer, grainBuffer, temperatureBuffer, zBuffer, colorValues, colorBuffer, resize, module, pipeline, renderBindGroup, colorsForm, seedElement, previousTimestamp, update, render, animate;
         return _ts_generator(this, function(_state) {
             switch(_state.label){
                 case 0:
@@ -581,9 +586,13 @@ var main = /*#__PURE__*/ function() {
                             }
                         ]
                     });
-                    gui.querySelector("form[name=colors]").onchange = function() {
+                    colorsForm = gui.querySelector("form[name=colors]");
+                    colorsForm.addEventListener("change", function() {
                         var colorValues;
                         try {
+                            if (params.colors.length === 0) {
+                                throw new Error("Empty colors");
+                            }
                             colorValues = new Float32Array(params.colors.map(function(e) {
                                 return _to_consumable_array(hexToRgb(e)).concat([
                                     1
@@ -630,7 +639,7 @@ var main = /*#__PURE__*/ function() {
                         });
                         buffers.get("color").destroy();
                         buffers.set("color", colorBuffer);
-                    };
+                    });
                     seedElement = gui.querySelector("input[name=seed]");
                     previousTimestamp = 0;
                     update = function(timestamp) {
